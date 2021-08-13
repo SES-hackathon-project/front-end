@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { PieChart } from 'react-minimal-pie-chart'
+import './loading.css'
 
 const Loading = (hangout_id) => {
 
@@ -24,19 +26,65 @@ const Loading = (hangout_id) => {
           console.log(`group size: ${json.group_size}`)
           setGroupsize(json.group_size)
         })
-
     }
 
     useEffect(() => {
       getInfo(hangout_id)
     }, [])
 
+    const one = submitted
+    const two = groupsize - submitted
+    // const two = 0
 
-    return (
-      <>
-      </>
-    )
+    const data_val = [
+      { title: 'Two', value: two, color: '#cccccc', style: { strokeWidth: 9 } },
+      { title: 'One', value: one, color: '#757171', style: { strokeWidth: 2 } }
+    ]
+
+    const data_val_full = [
+      { title: 'One', value: 1, color: '#776585', style: { strokeWidth: 9 } }
+    ]
+
+
+    const message = `${submitted}/${groupsize} joined...`
+
+    console.log(data_val)
+
+    if (two == 0) {
+      return (
+        <>
+          <div id="load">
+            <PieChart
+              lineWidth={30}
+              data={data_val_full}
+              radius={50}
+              rounded={true}
+            />
+          </div>
+        </>
+      )
+    }
+    else {
+
+      return (
+
+        <>
+          <div id="load">
+            <h1 id="load_des">{message}</h1>
+          </div>
+          <div id="load">
+            <PieChart
+              lineWidth={30}
+              data={data_val}
+              radius={50}
+              rounded={true}
+            />
+          </div>
+        </>
+      )
+    }
   }
+
 
   return (
     <div>

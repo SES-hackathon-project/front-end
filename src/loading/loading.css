@@ -1,0 +1,21 @@
+#load{
+  width:50%;
+  height:50%;
+  display:flex;
+  align-items:center;
+  padding-left:25%;
+  padding-right:25%;
+  text-align:center;
+}
+
+#load_des {
+  font-style: normal;
+  font-weight:bold;
+  font-size: 3vh;
+  line-height: 64px;
+  margin:auto;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(227, 230, 236);
+
+}

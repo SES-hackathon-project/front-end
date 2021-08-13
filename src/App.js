@@ -57,7 +57,6 @@ function App() {
       <Join isUp={state.isJoining} handleCodeInput={handleCodeInput} closePopup={closePopup} />
     </div>
 
-
   )
 }
 export default App;
