@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
+import Budget from './Budget';
+import CreateHangout from './CreateHangout';
 import Join from './Join';
-//import Routes from './Routes';
-
+import {BrowserRouter as Router, Route, Link, useHistory, Switch} from 'react-router-dom';
+import LoadingButton from './LoadingButton';
+import Loading from './Loading'
+import Reccomendation from './Recs'
 function App() {
   const [state, setState] = useState ({
     isJoining: false,
@@ -24,7 +28,7 @@ function App() {
       return {...prevState, groupCode: e.target.value};
     });
     
-    // console.log(state.groupCode);
+    console.log(state.groupCode);
   }
 
   const closePopup = () => {
@@ -32,30 +36,76 @@ function App() {
       return {...prevState, isJoining: false};
     })
   }
-  // possible budget input handler
-  // requires budget to have handleBudget as prop value 
-  // const handleBudget = (e) => {
+
+  // const handleKeyBudget = (e) => {
+  //   if(e.key === 'Enter') {
+    
   //     setState(prevState => {
-  //       return {...prevState, handleBudget: e.target.value};
-  //     });
-      
-  //     // console.log(state.budget);
+  //       return {...prevState, budget: e.target.value};
+  //     })
+
+  //     console.log(state.budget);
   //   }
- 
+  // }
+
   return (
-    // home page 
+
     // need to add functionality for create group button
 
-    <div className="App">
-      <h1 className="title">budget hangout.</h1>
-      <button className="JoinButton" onClick={openJoin}>Join Group</button>
-      <button className="CreateButton">Create Group</button>
+   <Router>
+    <body className="homePage">
+      <div className="App">
+        <h1 className="title">budget hangout<span style={{color: "#005FCC"}}>.</span></h1>
+        <button className="JoinButton" onClick={openJoin}>Join Group</button>
       <Join isUp={state.isJoining} handleCodeInput={handleCodeInput} closePopup={closePopup}/>
+
+        <Switch>
+        <Route 
+          path = "/budget"
+          render={(props) => (
+            <Budget group_id = {state.group_id} />
+          )}
+        />
+        <Route path = "/CreateHangout" component={CreateHangout}/>
+        <Route path ="/" exact component = {HandleCreateButton} />
+        <Route path = "/loading/${hangout_id.hangout_id}" component = {Loading}/>
+        <Route path = "/Recs" component={HandleClickRecs}/>
+        </Switch>
+      </div>
+    </body> 
+    </Router>
+
+  );
+}
+
+function HandleClickRecs() {
+  let history1 = useHistory();
+  function handleClick() {
+    history1.push("/Recs");
+  }
+  return (
+    <div>
+          <LoadingButton hangout_id={370493} onClick={HandleClickRecs} />
     </div>
-
-
   )
 }
+
+
+
+function HandleCreateButton() {
+  let history = useHistory();
+  function handleClick() {
+    history.push("/CreateHangout");
+  }
+
+
+  return (
+    <div>
+      <button className="CreateButton" onClick={handleClick}>Create Group</button>
+    </div>
+  )
+}
+
 export default App;
 
 

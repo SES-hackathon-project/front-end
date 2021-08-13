@@ -1,8 +1,10 @@
 import React from 'react';
 import './Join.css';
 import xicon from './xicon.png';
+import {BrowserRouter as Router, Route, Link,useHistory, Switch} from 'react-router-dom';
 
 function Join({isUp, handleCodeInput, closePopup}) {
+    let history = useHistory();
     return (
         isUp && (
             <section className="popup">
@@ -16,7 +18,11 @@ function Join({isUp, handleCodeInput, closePopup}) {
                         //onKeyPress={Budget} when key is pressed, 
                         // redirect to budget page
                         />
-                    <img className="xIcon" src={xicon} onClick={closePopup}/>
+                        <button className="addBudget" onClick ={()=>{
+                            history.push({pathname: "/budget"})
+                        }}>
+                        add your budget </button>
+                    <img className="xIcon" src={xicon} onClick={closePopup} alt=""/>
                 </div>
                 
             </section>

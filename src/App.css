@@ -28,6 +28,19 @@
   color: #61dafb;
 }
 
+
+body {
+  background: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  padding: 0 20px;  
+}
+
+.homePage {
+  background: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,29 +52,32 @@
 
 .JoinButton {
   /* Button */
-position: absolute;
-width: 216px;
-height: 64px;
-left: 612px;
-top: 331px;
+  position: absolute;
+  width: 216px;
+  height: 64px;
+  left: 45%;
+  top: 25%;
+  font-size: 11px;
+  font: "ABeeZee";
 
-background: #F5F5FA;
-/* Shadow 3 */
-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
-border-radius: 32px;
+  background: #F5F5FA;
+  /* Shadow 3 */
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
+  border-radius: 32px;
 }
 
 .CreateButton {
   position: absolute;
   width: 216px;
   height: 64px;
-  left: 610px;
-  top: 437px;
+  left: 45%;
+  top: 35%;
+  font-size: 10px;
   
   background: #F5F5FA;
   /* Shadow 3 */
-  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
-  border-radius: 32px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF; 
+  border-radius: 32px;  
 }
 
 /* Name */
